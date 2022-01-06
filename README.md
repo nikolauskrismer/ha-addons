@@ -1,6 +1,6 @@
 # Niko's Addon Repo
 
-* [Grafana](https://github.com/nikolauskrismer/ha-addons/grafana)
+* [Grafana](https://github.com/nikolauskrismer/ha-addons/tree/main/grafana)
 
 ## Adding to Home Assistant
 
