@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base system
 ARG BUILD_ARCH=amd64
 RUN \
-    GRAFANA="7.5.12" \
+    GRAFANA="${TEMPIO_VERSION}" \
     \
     && ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
@@ -79,14 +79,14 @@ LABEL \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} \
-    maintainer="Nikolaus Krismer <niko@krismer.de>" \
     io.hass.name="${BUILD_NAME}" \
     io.hass.description="${BUILD_DESCRIPTION}" \
+    maintainer="Nikolaus Krismer <niko@krismer.de>" \
     org.opencontainers.image.vendor="Home Assistant Add-on" \
     org.opencontainers.image.authors="Nikolaus Krismer <niko@krismer.de>" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
-    org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
+    org.opencontainers.image.source="https://github.com/nikolauskrismer/ha-addons/tree/main/grafana" \
+    org.opencontainers.image.documentation="https://github.com/nikolauskrismer/ha-addons/blob/main/grafana/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
