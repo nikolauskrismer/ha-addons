@@ -145,9 +145,6 @@ rendered image inside of a dashboard. For more details see
 
 ## Changelog & Releases
 
-This repository keeps a change log using [GitHub's releases][releases]
-functionality.
-
 Releases are based on [Semantic Versioning][semver], and use the format
 of `MAJOR.MINOR.PATCH`. In a nutshell, the version will be incremented
 based on the following:
@@ -165,5 +162,4 @@ It has been forked and aopted by [Nikolaus Krismer][nikolauskrismer].
 [frenck]: https://github.com/frenck
 [nikolauskrismer]: https://github.com/nikolauskrismer
 [influxdb-addon]: https://github.com/hassio-addons/addon-influxdb
-[releases]: https://github.com/nikolauskrismer/ha-addon-grafana/releases
 [semver]: http://semver.org/spec/v2.0.0.htm

@@ -22,4 +22,4 @@ fully support Grafana v8.
 Licensed under MIT.
 
 
-[docs]: https://github.com/nikolauskrismer/ha-addon-grafana/blob/main/DOCS.md
+[docs]: https://github.com/nikolauskrismer/ha-addons/blob/main/grafana/DOCS.md
