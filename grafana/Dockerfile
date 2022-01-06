@@ -1,21 +1,15 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/debian-base/amd64:4.2.0
-# hadolint ignore=DL3006
+ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-# Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Setup base system
-ARG BUILD_ARCH=amd64
-RUN \
-    GRAFANA="${GRAFANA_VERSION}" \
-    \
-    && ARCH="${BUILD_ARCH}" \
+ARG GRAFANA_VERSION BUILD_ARCH
+RUN ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then ARCH="armhf"; fi \
     \
     && curl -J -L -o /tmp/grafana.deb \
-        "https://dl.grafana.com/oss/release/grafana_${GRAFANA}_${ARCH}.deb" \
+        "https://dl.grafana.com/oss/release/grafana_${GRAFANA_VERSION}_${ARCH}.deb" \
     \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -60,33 +54,4 @@ RUN \
     && mkdir -p /var/log/nginx \
     && touch /var/log/nginx/error.log
 
-# Copy root filesystem
 COPY rootfs /
-
-# Build arguments
-ARG BUILD_ARCH
-ARG BUILD_DATE
-ARG BUILD_DESCRIPTION
-ARG BUILD_NAME
-ARG BUILD_REF
-ARG BUILD_REPOSITORY
-ARG BUILD_VERSION
-
-# Labels
-LABEL \
-    io.hass.name="${BUILD_NAME}" \
-    io.hass.description="${BUILD_DESCRIPTION}" \
-    io.hass.arch="${BUILD_ARCH}" \
-    io.hass.type="addon" \
-    io.hass.version=${BUILD_VERSION} \
-    io.hass.name="${BUILD_NAME}" \
-    io.hass.description="${BUILD_DESCRIPTION}" \
-    maintainer="Nikolaus Krismer <niko@krismer.de>" \
-    org.opencontainers.image.vendor="Home Assistant Add-on: Grafana v7" \
-    org.opencontainers.image.authors="Nikolaus Krismer <niko@krismer.de>" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/nikolauskrismer/ha-addons/tree/main/grafana" \
-    org.opencontainers.image.documentation="https://github.com/nikolauskrismer/ha-addons/blob/main/grafana/README.md" \
-    org.opencontainers.image.created=${BUILD_DATE} \
-    org.opencontainers.image.revision=${BUILD_REF} \
-    org.opencontainers.image.version=${BUILD_VERSION}
