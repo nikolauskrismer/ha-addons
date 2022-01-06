@@ -3,10 +3,10 @@ build_from:
   amd64: ghcr.io/hassio-addons/debian-base/amd64:4.2.0
   armv7: ghcr.io/hassio-addons/debian-base/armv7:4.2.0
 labels:
-  org.opencontainers.image.vendor="Home Assistant Add-on" \
-  org.opencontainers.image.authors="Nikolaus Krismer <niko@krismer.de>" \
-  org.opencontainers.image.licenses="MIT" \
-  org.opencontainers.image.source="https://github.com/nikolauskrismer/ha-addons/tree/main/grafana" \
-  org.opencontainers.image.documentation="https://github.com/nikolauskrismer/ha-addons/blob/main/grafana/README.md" \
+  org.opencontainers.image.vendor: Home Assistant Add-on: Grafana v7
+  org.opencontainers.image.authors: Nikolaus Krismer <niko@krismer.de>
+  org.opencontainers.image.licenses: MIT
+  org.opencontainers.image.source: https://github.com/nikolauskrismer/ha-addons/tree/main/grafana
+  org.opencontainers.image.documentation: https://github.com/nikolauskrismer/ha-addons/blob/main/grafana/README.md
 args:
   GRAFANA_VERSION: "7.5.12"

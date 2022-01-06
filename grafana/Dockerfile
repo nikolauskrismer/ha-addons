@@ -82,7 +82,7 @@ LABEL \
     io.hass.name="${BUILD_NAME}" \
     io.hass.description="${BUILD_DESCRIPTION}" \
     maintainer="Nikolaus Krismer <niko@krismer.de>" \
-    org.opencontainers.image.vendor="Home Assistant Add-on" \
+    org.opencontainers.image.vendor="Home Assistant Add-on: Grafana v7" \
     org.opencontainers.image.authors="Nikolaus Krismer <niko@krismer.de>" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.source="https://github.com/nikolauskrismer/ha-addons/tree/main/grafana" \
